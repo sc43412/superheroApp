@@ -34,18 +34,27 @@ h2 {
     font-family: 'Courier New', Courier, monospace;
 }
 
-#return-pages {
+.return-pages {
     float: left;
     widows: 70px;
     height: 40px;
     background-color: white;
 }
 
-#return-pages a {
+.return-pages a {
     color: #152238;
     font-size: 20px;
     text-decoration: none;
     padding: 5px;
+}
+
+.return-pages:hover {
+    background-color: rgb(94, 25, 184);
+}
+
+.return-pages a :hover {
+    color: white;
+    text-decoration: underline;
 }
 
 #favourites {

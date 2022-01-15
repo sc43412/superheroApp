@@ -1,9 +1,10 @@
+// FETCH DOM ELEMENT
 const conatiner = document.querySelector('.container');
-const searchList = document.getElementById('search-results-list');
+const searchList = document.querySelector('.search-results-list');
 
-
+///API URL WITH REGISTERED TOKEN
 var apiurl = "https://www.superheroapi.com/api.php/2443779819087299/"
-
+    /// CALL THE FAV FUNCTION FOR FURTHER OPERATION
 getFavhero();
 
 
@@ -14,16 +15,15 @@ getFavhero();
 
 
 /// function 
-
+/// GETIING THE ELEMENT WITH THE HELP OF LOCALSTORAGE(THIS STORAGE SAVE IN SCRIPT.JS)
 function getFavhero() {
-    let heros = localStorage.getItem('heros');
-    console.log(heros);
-    if (!heros || heros.length === 0) {
-        var elem = document.createElement('p')
-        elem.innerText = "no result found";
-        searchList.appendChild(elem);
+
+    const heros1 = (localStorage.getItem('heros'));
+    console.log(heros1);
+    if (!heros1 || heros1.length == 0) {
+        return;
     } else {
-        heros = JSON.parse(localStorage.getItem('heros'))
+        let heros = JSON.parse(localStorage.getItem('heros'))
         searchList.innerHTML = "";
         conatiner.innerHTML = "";
         heros.forEach(element => {
@@ -35,7 +35,7 @@ function getFavhero() {
 
 }
 
-/////
+/////  CREATE NEW HTML CONTENT WITH THE HELP OF API DATA
 function favdetailes(id) {
     var newurl = apiurl + id;
     var xhrRequest = new XMLHttpRequest();
@@ -44,6 +44,7 @@ function favdetailes(id) {
     xhrRequest.onload = function() {
         var data = JSON.parse(xhrRequest.response);
         var element = document.createElement('div');
+        element.id = "my-contain";
         element.innerHTML = (`
         <div id="image"><img src="${data.image.url}"></div>
         <div id="name"><a href="details.html?id=${data.id}">
@@ -55,14 +56,14 @@ function favdetailes(id) {
     };
 }
 
-// this function removes movies from local storage
+// REMOVE HERO FROM LOCALSTORAGE
 function editStorage(id) {
-    let alarms_list = JSON.parse(localStorage.getItem('heros')); //get deleted movies from local storage
+    let alarms_list = JSON.parse(localStorage.getItem('heros'));
     let index = alarms_list.indexOf(id);
     alarms_list.splice(index, 1);
     localStorage.removeItem('heros');
 
-    localStorage.setItem('heros', JSON.stringify(alarms_list)); // it will restore remaining items in local storage
+    localStorage.setItem('heros', JSON.stringify(alarms_list)); // IT WILL RESTORE REMAINING ITEM IN LOCAL STORAGE
     getFavhero();
 }
 

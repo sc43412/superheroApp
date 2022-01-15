@@ -1,3 +1,4 @@
+// select all element by document query selector
 const searchValue = document.querySelector('.searchTerm');
 const searchButton = document.querySelector('.searchButton');
 const fieldContainer = document.querySelector('.container');
@@ -5,28 +6,28 @@ const fieldContainer = document.querySelector('.container');
 
 //// api url for fetch data
 var apiurl = "https://www.superheroapi.com/api.php/2443779819087299/search/"
-    //// reqquest
+    //// request
 const xhrRequest = new XMLHttpRequest();
 /// eventlistener to search button
 searchButton.addEventListener('click', function(e) {
-    e.preventDefault();
-    console.log("button click");
-    console.log(searchValue.value);
-    if (searchValue.value == "") {
-        alert("please type the hero name");
-        return;
-    }
+        e.preventDefault();
+        console.log("button click");
+        console.log(searchValue.value);
+        if (searchValue.value == "") {
+            alert("please type the hero name");
+            return;
+        }
 
-    var apinew = apiurl + searchValue.value;
-    xhrRequest.open('get', apinew);
-    xhrRequest.send();
-    searchValue.value = "";
-    fieldContainer.innerHTML = "";
-    xhrRequest.onload = showimage;
+        var apinew = apiurl + searchValue.value;
+        xhrRequest.open('get', apinew);
+        xhrRequest.send();
+        searchValue.value = "";
+        fieldContainer.innerHTML = "";
+        xhrRequest.onload = showimage;
 
 
-})
-
+    })
+    //// show details of heroes
 function showimage() {
 
     var result = JSON.parse(xhrRequest.response);
@@ -34,7 +35,7 @@ function showimage() {
 
         // console.log(result.image.url)
         var list = document.createElement('li');
-
+        /////ADDING INNERHTML HERE AND FOR DETAILS PAGE PASSING ID THROUGH QUERY PARAM
         list.innerHTML = (`
         
         <div id="search-results">
@@ -61,7 +62,7 @@ function showimage() {
 
 }
 
-/////////
+/////////  UPDATE THE LOCAL STOREGE THAT IS USED IN FAVOURITE SECTION
 
 
 function updateStorage(value) {

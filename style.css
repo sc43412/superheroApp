@@ -1,3 +1,5 @@
+/* CONTAINER  STYLE */
+
 #container1 {
     width: 800px;
     height: auto;
@@ -13,6 +15,8 @@
 
 #container1 button {
     height: 40px;
+    text-align: center;
+    cursor: pointer;
 }
 
 body {
@@ -26,7 +30,7 @@ li {
     width: 500px;
 }
 
-#container {
+.container {
     position: relative;
     left: 30%;
 }
@@ -50,15 +54,38 @@ img {
     text-align: center;
     color: white;
     font-weight: 500;
+    cursor: pointer;
 }
 
 #add-to-fav a {
     text-decoration: none;
+    cursor: pointer;
+}
+
+#add-to-fav:hover {
+    background-color: white;
+    color: red;
+}
+
+#add-to-fav a:hover {
+    color: red;
 }
 
 #name {
-    color: skyblue;
+    color: rgb(153, 135, 235);
     font-size: 15px;
+}
+
+#name a {
+    text-decoration: none;
+    background-color: rgb(218, 51, 121);
+    color: whitesmoke;
+}
+
+#name a :hover {
+    text-decoration: underline;
+    background-color: black;
+    color: whitesmoke;
 }
 
 #favourites {
@@ -66,12 +93,22 @@ img {
     font-size: 20px;
     width: 100px;
     height: 50px;
-    background-color: red;
+    background-color: rgb(135, 211, 35);
     border: 2px solid grey;
-    text-align: center;
-    color: whitesmoke;
+    display: flex;
 }
 
 #favourites a {
+    text-align: center;
+    margin: auto;
+    color: whitesmoke;
     text-decoration: none;
+}
+
+#favourites:hover {
+    background-color: tomato;
+}
+
+#favourites a:hover {
+    color: #152238;
 }

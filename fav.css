@@ -1,0 +1,80 @@
+body {
+    background-color: #152238;
+    color: white;
+}
+
+.container {
+    position: absolute;
+}
+
+.container img {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    left: 40%;
+}
+
+#my-contain {
+    width: 500px;
+    height: 120px;
+    position: relative;
+    left: 80%;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: #152238;
+    font-size: 30px;
+    padding: 10px;
+}
+
+#remove-from-fav {
+    width: 100px;
+    height: 30px;
+    background-color: #152238;
+    ;
+    text-align: center;
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+#remove-from-fav:hover {
+    background-color: white;
+    color: black;
+}
+
+h2 {
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    position: relative;
+    top: -25%;
+    color: white;
+    display: inline-block;
+}
+
+h1:hover {
+    text-decoration: underline;
+    color: tomato;
+}
+
+#name {
+    display: flex;
+    justify-content: center;
+    margin-left: 10%;
+}
+
+#name:hover {
+    background-color: rgb(40, 207, 207);
+}
+
+#name a :hover {
+    text-decoration: underline;
+}
